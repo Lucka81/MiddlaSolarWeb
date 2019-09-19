@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<!-- saved from url=(0044)http://kaioa.com/k/test/cyclotron/index.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title></title>
+		<meta charset="UTF-8">
+		<style>
+			html, body {
+				margin: 0;
+				padding: 0;
+			}
+			.cycle {
+				background-image: url(middla512.jpg);
+				height: 512px;
+				cursor: move;
+			}
+			.box {
+				width: auto;
+				margin: 0 10%;
+				font-family: arial, sans-serif;
+			}
+			.sun {
+				background-image: url(sun.png);
+				background-size: 300px 300px;
+				width: 300px;
+				height: 300px;
+				margin: 0 auto ;
+				position: absolute;
+ 				top: -100px;
+ 				left: -100px;
+			}
+			.battery {
+				background-image: url(battery.png);
+				background-size: 70px 40px;
+				width: 70px;
+				height: 40px;
+				margin: 0 auto ;
+				position: absolute;
+				top: 5px;
+				right: 40px;
+			}
+			.charge {
+
+				margin: 0 auto;
+				position: relative;
+				top: 5px;
+				right: -10px;
+				--color: #FF0000;
+			}
+		</style>
+	</head>
+	<body onload="setbackground();">
+		<div class="cycle" style="background-position: -4067.3560813933063px 50%; "></div>
+
+
+		<div class="box">
+			<h1>
+				<span id="logo1" style="color:#CCAFFF">M</span>
+				<span id="logo2">I</span>
+				<span id="logo3">D</span>
+				<span id="logo4">D</span>
+				<span id="logo5">L</span>
+				<span id="logo6">A</span>
+				<span style="color:#CCAFFF"> - Solar Web</span>
+			</h1>
+			<p>Drag the image above around to see the lab!</p>
+
+			<p>The Interaction lab is an open lab space allowing for work within the field of Interaction design. The lab today is mainly for students enrolled in the HCI master programme, providing means for conducting workshops and other student related work.</p>
+
+		</div>
+		<div class="sun">
+			<!--div class="charge"><h1>50%</h1></div-->
+		</div>
+		<div class="battery">
+			<div class="charge">50%</div>
+		</div>
+		<script src="./index_files/jquery-1.7.1.min.js"></script>
+		<!--<script src="cycle.js"></script>-->
+		<script src="./index_files/jquery.cyclotron.js"></script>
+		<script>
+		$(document).ready(function ($) {
+			$('.cycle').cyclotron({continuous:0,dampingFactor:1,autorotation:1});
+		});
+
+		function setbackground()
+{
+window.setTimeout( "setbackground()", 5000); // 5000 milliseconds delay
+
+var index = Math.round(Math.random() * 9);
+var letterindex = Math.round(Math.random() * 6);
+
+var ColorValue = "CCAFFF"; // default color - white (index = 0)
+
+if(index == 1)
+ColorValue = "FFCCCC"; //peach
+if(index == 2)
+ColorValue = "CCAFFF"; //violet
+if(index == 3)
+ColorValue = "A6BEFF"; //lt blue
+if(index == 4)
+ColorValue = "99FFFF"; //cyan
+if(index == 5)
+ ColorValue = "D5CCBB"; //tan
+if(index == 6)
+ColorValue = "99FF99"; //lt green
+if(index == 7)
+ColorValue = "FFFF99"; //lt yellow
+if(index == 8)
+ColorValue = "FFCC99"; //lt orange
+if(index == 9)
+ColorValue = "CCCCCC"; //lt grey
+
+//document.getElementsByTagName("body")[0].style.backgroundColor = "#" + ColorValue;
+document.getElementById("logo" + letterindex).style.color = "#" + ColorValue;
+
+}
+		</script>
+
+</body></html>
